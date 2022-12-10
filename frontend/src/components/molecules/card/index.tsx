@@ -27,8 +27,8 @@ const Card = ({ title, body, link = "/", imageURL, buttons }: Props) => {
           <Typography variant="h3">{title}</Typography>
         </Link>
         <Typography variant="body1">{body}</Typography>
-        {buttons !== undefined && <CardActions>{buttons}</CardActions>}
       </CardBody>
+      {buttons !== undefined && <CardActions>{buttons}</CardActions>}
     </Container>
   );
 };

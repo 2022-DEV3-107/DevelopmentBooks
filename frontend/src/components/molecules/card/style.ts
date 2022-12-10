@@ -11,10 +11,14 @@ const Container = tw.div`
 
 const CardBody = tw.div`
   p-5
+  h-auto 
+  
+  lg:h-24
 `;
 
 const CardActions = tw.div`
   mt-6
+  p-5
 `;
 
 const ImageContainer = tw.div`
