@@ -4,6 +4,7 @@ import Typography from "../../components/atoms/typography";
 import Header from "../../components/molecules/header";
 import { Props as LinkProps } from "../../components/atoms/link";
 import { Container } from "./style";
+import Card from "../../components/molecules/card";
 
 export interface Props {}
 
@@ -56,6 +57,14 @@ const Home = (props: Props) => {
             rutrum quis augue. Integer a vulputate libero, mollis rutrum lectus.
             Aenean eros enim, pretium vel facilisis ullamcorper, cursus id enim.
           </Typography>
+        </div>
+        <div className="mt-4">
+          <Card
+            title="Clean Code"
+            body="Robert Martin - 2008"
+            imageURL="https://raw.githubusercontent.com/stephane-genicot/katas/master/images/Kata_DevelopmentBooks_CleanCode.png"
+            buttons={[<Button key={1}>Add to Cart</Button>]}
+          />
         </div>
       </Container>
     </>
