@@ -11,11 +11,17 @@ const VariantMapping = {
 
 export interface Props {
   variant?: Variants;
+  onClick?: Function;
   children?: string | JSX.Element | JSX.Element[];
 }
 
-const Button = ({ variant = "primary", children }: Props) => {
+const Button = ({
+  variant = "primary",
+  onClick = () => {},
+  children,
+}: Props) => {
   return React.cloneElement(VariantMapping[variant], {
+    onClick,
     children,
   });
 };
