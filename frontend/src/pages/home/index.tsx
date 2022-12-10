@@ -5,6 +5,7 @@ import Header from "../../components/molecules/header";
 import { Props as LinkProps } from "../../components/atoms/link";
 import { Container } from "./style";
 import Card from "../../components/molecules/card";
+import { useHomeLogic } from "./logic";
 
 export interface Props {}
 
@@ -24,6 +25,9 @@ const NavLinks: LinkProps[] = [
 ];
 
 const Home = (props: Props) => {
+  const { reducer } = useHomeLogic();
+  console.log("books", reducer.books);
+
   return (
     <>
       <Header links={NavLinks} />

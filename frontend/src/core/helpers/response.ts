@@ -12,7 +12,7 @@ const responseHandler = (
 ) => {
   const { data, status } = response;
   if (status >= 200 && status <= 299) {
-    return data.data;
+    return data;
   }
 
   throw Error(errorMessage);

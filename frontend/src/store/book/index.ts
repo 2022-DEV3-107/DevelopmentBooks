@@ -64,4 +64,8 @@ export const selectBooks = (state: RootState) => state.book.books;
 
 export const selectActivity = (state: RootState) => state.book.book;
 
+export const selectStatus = (state: RootState) => {
+  return { loading: state.book.loading, error: state.book.error };
+};
+
 export default bookSlice.reducer;
