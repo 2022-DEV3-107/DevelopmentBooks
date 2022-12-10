@@ -2,7 +2,14 @@ import React from "react";
 import PriceLabel from "../../atoms/price-label";
 import Typography from "../../atoms/typography";
 import { useShoppingCartLogic } from "./logic";
-import { Container } from "./style";
+import {
+  BasketItem,
+  Container,
+  EmptyBasket,
+  PriceContainer,
+  Summary,
+  SummaryRow,
+} from "./style";
 
 type Props = {};
 
@@ -14,7 +21,7 @@ const ShoppingCart = (props: Props) => {
         <>
           {reducer.shoppingCart.items.map((basketItem, index) => {
             return (
-              <div className="flex p-4 border-b border-gray-200 last:border-0">
+              <BasketItem>
                 <div className="mr-4">
                   <img
                     src={basketItem.item.imageUrl}
@@ -36,33 +43,33 @@ const ShoppingCart = (props: Props) => {
                     value={basketItem.item.price * basketItem.quantity}
                   />
                 </div>
-              </div>
+              </BasketItem>
             );
           })}
 
-          <div className="flex flex-col items-end p-4">
-            <div className="flex items-center">
+          <Summary>
+            <SummaryRow>
               <div>Subtotal</div>
-              <div className="w-32 text-right">
+              <PriceContainer>
                 <PriceLabel value={reducer.shoppingCart.subTotal} />
-              </div>
-            </div>
-            <div className="flex items-center">
+              </PriceContainer>
+            </SummaryRow>
+            <SummaryRow>
               <div>Discount</div>
-              <div className="w-32 text-right">
+              <PriceContainer>
                 <PriceLabel value={reducer.shoppingCart.discount} />
-              </div>
-            </div>
-            <div className="flex items-center">
+              </PriceContainer>
+            </SummaryRow>
+            <SummaryRow>
               <div>Total</div>
-              <div className="w-32 text-right">
+              <PriceContainer>
                 <PriceLabel value={reducer.shoppingCart.total} />
-              </div>
-            </div>
-          </div>
+              </PriceContainer>
+            </SummaryRow>
+          </Summary>
         </>
       ) : (
-        <div className="p-8 text-center">Your basket is empty!</div>
+        <EmptyBasket>Your basket is empty!</EmptyBasket>
       )}
     </Container>
   );
