@@ -6,6 +6,7 @@ import Card from "../../components/molecules/card";
 import { useHomeLogic } from "./logic";
 import { NavLinks } from "./constants";
 import Grid from "../../components/atoms/grid";
+import PriceLabel from "../../components/atoms/price-label";
 
 export interface Props {}
 
@@ -24,7 +25,10 @@ const Home = (props: Props) => {
                 title={book.title}
                 body={`${book.author} - ${book.publishedAt}`}
                 imageURL={book.imageUrl}
-                buttons={[<Button key={1}>Add to Cart</Button>]}
+                actions={[
+                  <Button key={1}>Add to Cart</Button>,
+                  <PriceLabel value={book.price} />,
+                ]}
                 key={index}
               />
             );

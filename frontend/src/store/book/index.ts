@@ -18,6 +18,7 @@ const initialState: BookState = {
     author: "",
     imageUrl: "",
     publishedAt: "",
+    price: 0,
   },
   books: [],
   loading: false,

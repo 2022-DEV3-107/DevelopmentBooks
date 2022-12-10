@@ -4,6 +4,7 @@ export class BookDTO {
   author: string = "";
   imageUrl: string = "";
   publishedAt: string = "";
+  price: number = 0;
 }
 
 export class CreateBookDTO {
@@ -11,6 +12,7 @@ export class CreateBookDTO {
   author: string = "";
   imageUrl: string = "";
   publishedAt: string = "";
+  price: number = 0;
 }
 
 export class UpdateBookDTO {
@@ -19,4 +21,5 @@ export class UpdateBookDTO {
   author: string = "";
   imageUrl: string = "";
   publishedAt: string = "";
+  price: number = 0;
 }

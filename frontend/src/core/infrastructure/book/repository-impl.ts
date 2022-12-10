@@ -19,7 +19,8 @@ export class BookRepositoryImpl implements BookRepository {
           item.title,
           item.author,
           item.imageUrl,
-          item.publishedAt
+          item.publishedAt,
+          item.price
         )
     );
   }
@@ -32,7 +33,8 @@ export class BookRepositoryImpl implements BookRepository {
       item.title,
       item.author,
       item.imageUrl,
-      item.publishedAt
+      item.publishedAt,
+      item.price
     );
   }
 
@@ -45,7 +47,8 @@ export class BookRepositoryImpl implements BookRepository {
       item.title,
       item.author,
       item.imageUrl,
-      item.publishedAt
+      item.publishedAt,
+      item.price
     );
   }
 
@@ -58,7 +61,8 @@ export class BookRepositoryImpl implements BookRepository {
       item.title,
       item.author,
       item.imageUrl,
-      item.publishedAt
+      item.publishedAt,
+      item.price
     );
   }
 

@@ -17,6 +17,8 @@ const CardBody = tw.div`
 `;
 
 const CardActions = tw.div`
+  flex
+  justify-between
   mt-6
   p-5
 `;

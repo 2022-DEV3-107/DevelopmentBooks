@@ -8,10 +8,10 @@ interface Props {
   body: string;
   link?: string;
   imageURL?: string;
-  buttons?: JSX.Element | JSX.Element[];
+  actions?: JSX.Element | JSX.Element[];
 }
 
-const Card = ({ title, body, link = "/", imageURL, buttons }: Props) => {
+const Card = ({ title, body, link = "/", imageURL, actions }: Props) => {
   return (
     <Container>
       {imageURL !== undefined && (
@@ -28,7 +28,7 @@ const Card = ({ title, body, link = "/", imageURL, buttons }: Props) => {
         </Link>
         <Typography variant="body1">{body}</Typography>
       </CardBody>
-      {buttons !== undefined && <CardActions>{buttons}</CardActions>}
+      {actions !== undefined && <CardActions>{actions}</CardActions>}
     </Container>
   );
 };
