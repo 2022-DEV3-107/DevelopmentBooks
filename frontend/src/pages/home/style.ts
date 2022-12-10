@@ -6,10 +6,11 @@ const Container = tw.div`
     justify-center
     flex-col
     w-full
-    max-w-7xl
-    min-h-screen
     m-auto
     bg-white
+    px-6
+    
+    lg:px-6
 `;
 
 export { Container };

@@ -21,7 +21,7 @@ const Container = tw.div`
   py-6
   items-center
 
-  xl:px-12
+  xl:px-8
 `;
 
 const Logo = tw(Link)`
