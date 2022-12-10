@@ -7,6 +7,7 @@ import { useHomeLogic } from "./logic";
 import { NavLinks } from "./constants";
 import Grid from "../../components/atoms/grid";
 import PriceLabel from "../../components/atoms/price-label";
+import ShoppingCart from "../../components/organisms/shopping-cart";
 
 export interface Props {}
 
@@ -41,6 +42,7 @@ const Home = (props: Props) => {
             );
           })}
         </Grid>
+        <ShoppingCart />
       </Container>
     </>
   );

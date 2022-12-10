@@ -43,6 +43,8 @@ export const shoppingCartSlice = createSlice({
       } else {
         state.items[itemIndex].quantity++;
       }
+      state.subTotal += action.payload.price;
+      state.total = state.subTotal - state.discount;
     },
   },
 });
