@@ -27,7 +27,7 @@ const Home = (props: Props) => {
                 imageURL={book.imageUrl}
                 actions={[
                   <Button key={1}>Add to Cart</Button>,
-                  <PriceLabel value={book.price} />,
+                  <PriceLabel value={book.price} key={2} />,
                 ]}
                 key={index}
               />
