@@ -7,7 +7,7 @@ const Container = tw.div`
     flex-col
     w-full
     min-h-screen
-    bg-indigo-600
+    bg-white
 `;
 
 export { Container };
