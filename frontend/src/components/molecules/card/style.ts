@@ -17,4 +17,19 @@ const CardActions = tw.div`
   mt-6
 `;
 
-export { Container, CardBody, CardActions };
+const ImageContainer = tw.div`
+  rounded-t-lg
+  h-72
+  overflow-hidden
+  relative
+  
+  after:bottom-0
+  after:h-24
+  after:absolute
+  after:w-full
+  after:bg-gradient-to-t
+  after:from-gray-900
+  after:to-transparent
+`;
+
+export { Container, CardBody, CardActions, ImageContainer };

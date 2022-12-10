@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "../../atoms/link";
 import Typography from "../../atoms/typography";
-import { CardActions, CardBody, Container } from "./style";
+import { CardActions, CardBody, Container, ImageContainer } from "./style";
 
 interface Props {
   title: string;
@@ -16,7 +16,9 @@ const Card = ({ title, body, link = "/", imageURL, buttons }: Props) => {
     <Container>
       {imageURL !== undefined && (
         <Link to={link}>
-          <img className="rounded-t-lg" src={imageURL} alt={title} />
+          <ImageContainer>
+            <img className="w-full" src={imageURL} alt={title} />
+          </ImageContainer>
         </Link>
       )}
 
