@@ -1,28 +1,12 @@
 import React from "react";
 import Button from "../../components/atoms/button";
-import Typography from "../../components/atoms/typography";
 import Header from "../../components/molecules/header";
-import { Props as LinkProps } from "../../components/atoms/link";
 import { Container } from "./style";
 import Card from "../../components/molecules/card";
 import { useHomeLogic } from "./logic";
+import { NavLinks } from "./constants";
 
 export interface Props {}
-
-const NavLinks: LinkProps[] = [
-  {
-    to: "/",
-    children: "Home",
-  },
-  {
-    to: "/",
-    children: "Categories",
-  },
-  {
-    to: "/",
-    children: "Contact Us",
-  },
-];
 
 const Home = (props: Props) => {
   const { reducer } = useHomeLogic();
