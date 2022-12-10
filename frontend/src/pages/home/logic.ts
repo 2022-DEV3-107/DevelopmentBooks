@@ -10,7 +10,7 @@ export const useHomeLogic = () => {
 
   useEffect(() => {
     dispatch(getBooks());
-  }, []);
+  }, [dispatch]);
 
   return {
     state: {},
