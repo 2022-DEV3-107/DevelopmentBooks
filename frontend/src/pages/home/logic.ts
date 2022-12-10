@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { selectBooks, selectStatus } from "../../store/book";
 import { getBooks } from "../../store/book/actions";
+import { addToBasket } from "../../store/shopping-cart";
 
 export const useHomeLogic = () => {
   const dispatch = useAppDispatch();
@@ -14,7 +15,9 @@ export const useHomeLogic = () => {
 
   return {
     state: {},
-    actions: {},
+    actions: {
+      addToBasket: (book: any) => dispatch(addToBasket(book)),
+    },
     reducer: { books, loading, error },
   };
 };

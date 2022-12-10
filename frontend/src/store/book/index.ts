@@ -63,7 +63,7 @@ export const bookSlice = createSlice({
 // Other code such as selectors can use the imported `RootState` type
 export const selectBooks = (state: RootState) => state.book.books;
 
-export const selectActivity = (state: RootState) => state.book.book;
+export const selectBook = (state: RootState) => state.book.book;
 
 export const selectStatus = (state: RootState) => {
   return { loading: state.book.loading, error: state.book.error };

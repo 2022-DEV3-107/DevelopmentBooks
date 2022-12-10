@@ -11,7 +11,7 @@ import PriceLabel from "../../components/atoms/price-label";
 export interface Props {}
 
 const Home = (props: Props) => {
-  const { reducer } = useHomeLogic();
+  const { reducer, actions } = useHomeLogic();
 
   return (
     <>
@@ -26,7 +26,14 @@ const Home = (props: Props) => {
                 body={`${book.author} - ${book.publishedAt}`}
                 imageURL={book.imageUrl}
                 actions={[
-                  <Button key={1}>Add to Cart</Button>,
+                  <Button
+                    onClick={() => {
+                      actions.addToBasket(book);
+                    }}
+                    key={1}
+                  >
+                    Add to Cart
+                  </Button>,
                   <PriceLabel value={book.price} key={2} />,
                 ]}
                 key={index}
