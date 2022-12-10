@@ -5,6 +5,7 @@ import { Container } from "./style";
 import Card from "../../components/molecules/card";
 import { useHomeLogic } from "./logic";
 import { NavLinks } from "./constants";
+import Grid from "../../components/atoms/grid";
 
 export interface Props {}
 
@@ -16,7 +17,7 @@ const Home = (props: Props) => {
       <Header links={NavLinks} />
 
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 py-6">
+        <Grid>
           {reducer.books.map((book, index) => {
             return (
               <Card
@@ -28,7 +29,7 @@ const Home = (props: Props) => {
               />
             );
           })}
-        </div>
+        </Grid>
       </Container>
     </>
   );
