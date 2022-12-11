@@ -29,7 +29,7 @@ const Home = (props: Props) => {
                 actions={[
                   <Button
                     onClick={() => {
-                      actions.addToBasket(book);
+                      actions.addToBasket(reducer.shoppingCart, book);
                     }}
                     key={1}
                   >

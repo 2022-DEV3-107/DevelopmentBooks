@@ -1,15 +1,12 @@
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { addToBasket, selectShoppingCart } from "../../../store/shopping-cart";
+import { useAppSelector } from "../../../hooks/redux";
+import { selectShoppingCart } from "../../../store/shopping-cart";
 
 export const useShoppingCartLogic = () => {
-  const dispatch = useAppDispatch();
   const shoppingCart = useAppSelector(selectShoppingCart);
 
   return {
     state: {},
-    actions: {
-      addToBasket: (book: any) => dispatch(addToBasket(book)),
-    },
+    actions: {},
     reducer: { shoppingCart },
   };
 };

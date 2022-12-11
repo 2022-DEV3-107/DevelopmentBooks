@@ -21,7 +21,7 @@ const ShoppingCart = (props: Props) => {
         <>
           {reducer.shoppingCart.items.map((basketItem, index) => {
             return (
-              <BasketItem>
+              <BasketItem key={index}>
                 <div className="mr-4">
                   <img
                     src={basketItem.item.imageUrl}
