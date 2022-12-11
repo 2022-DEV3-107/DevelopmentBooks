@@ -14,6 +14,10 @@ const DiscountRates: DiscountRatesType = {
   4: 20,
   5: 25,
 };
+
+let bestRateKey: number = 0;
+let higestRateKey: number = 5;
+
 export const useShoppingCart = () => {
   const add = (cart: ShoppingCart, item: Book) => {
     const itemIndex = cart.findItemIndex(item.id);
@@ -44,12 +48,72 @@ export const useShoppingCart = () => {
     if (items.length > 1) {
       const diffCount = findDifferentItemCount(items);
       if (diffCount > 1) {
-        const discountGroups = groupItems(items);
+        let discountGroups = groupItems(items);
+        discountGroups = optimizeDiscountGroups(discountGroups);
         discountTotal = calculateTotal(discountGroups, items);
       }
     }
 
     return discountTotal;
+  };
+
+  const optimizeDiscountGroups = (groups: Array<number[]>) => {
+    if (groups.length > 1) {
+      const bestRateKey = findBestRateKey();
+      if (bestRateKey < higestRateKey) {
+        const groupMap = groups.map((group) => group.length);
+        const optimizeToBestPossibilities = groupMap.map(
+          (group) => group - bestRateKey
+        );
+        const optimizeFrom = optimizeToBestPossibilities.filter(
+          (key) => key > 0
+        );
+        const optimizeTo = optimizeToBestPossibilities.filter((key) => key < 0);
+        if (optimizeFrom.length > 0 && optimizeTo.length > 0) {
+          optimizeFrom.forEach((fromValue) => {
+            const optimize = optimizeTo.find(
+              (toValue) => fromValue + toValue === 0
+            );
+            if (optimize) {
+              const fromGroupIndex = optimizeToBestPossibilities.findIndex(
+                (value) => value === fromValue
+              );
+              const toGroupIndex = optimizeToBestPossibilities.findIndex(
+                (value) => value === optimize
+              );
+              console.log("OPTIMIZE", fromGroupIndex, toGroupIndex);
+              groups[toGroupIndex].push(groups[fromGroupIndex].pop()!);
+              console.log("OPTIMIZED!", groups);
+            }
+          });
+        }
+      }
+    }
+    return groups;
+  };
+
+  const findBestRateKey = () => {
+    if (bestRateKey !== 0) return bestRateKey;
+
+    let bestRate = 0;
+    let rateInc = 0;
+
+    Object.keys(DiscountRates).forEach((key: string) => {
+      const rate = DiscountRates[Number(key) as keyof DiscountRatesType];
+
+      if (bestRate == 0) {
+        bestRate = rate;
+        bestRateKey = Number(key);
+      } else {
+        const inc = rate / bestRate;
+        if (inc >= rateInc) {
+          bestRate = rate;
+          bestRateKey = Number(key);
+        }
+        rateInc = inc;
+      }
+    });
+    return bestRateKey;
   };
 
   const calculateTotal = (groups: Array<number[]>, items: BasketItem[]) => {
