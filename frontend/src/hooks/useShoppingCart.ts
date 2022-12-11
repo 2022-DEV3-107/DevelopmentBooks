@@ -101,7 +101,7 @@ export const useShoppingCart = () => {
     Object.keys(DiscountRates).forEach((key: string) => {
       const rate = DiscountRates[Number(key) as keyof DiscountRatesType];
 
-      if (bestRate == 0) {
+      if (bestRate === 0) {
         bestRate = rate;
         bestRateKey = Number(key);
       } else {
